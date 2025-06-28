@@ -1,0 +1,16 @@
+digraph G {
+"base_link" -> "camera"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"odom" -> "base_link"[label=" Broadcaster: default_authority\nAverage rate: 7.061\nBuffer length: 4.674\nMost recent transform: 1751112576.034037\nOldest transform: 1751112571.360373\n"];
+"base_link" -> "livox_frame"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"drone0/odom" -> "drone0/base_link"[label=" Broadcaster: default_authority\nAverage rate: 95.301\nBuffer length: 4.848\nMost recent transform: 1751112576.350972\nOldest transform: 1751112571.503159\n"];
+"drone0/map" -> "drone0/odom"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"drone0/map" -> "odom"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "imu"[label=" Broadcaster: default_authority\nAverage rate: 7.061\nBuffer length: 4.674\nMost recent transform: 1751112576.034037\nOldest transform: 1751112571.360373\n"];
+"base_link" -> "lidar"[label=" Broadcaster: default_authority\nAverage rate: 7.061\nBuffer length: 4.674\nMost recent transform: 1751112576.034037\nOldest transform: 1751112571.360373\n"];
+"map" -> "drone0/map"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "px4_frame"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1751112576.3514807"[ shape=plaintext ] ;
+}->"map";
+}
