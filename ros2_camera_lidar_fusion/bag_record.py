@@ -12,7 +12,7 @@ class BagRecorder(Node):
         super().__init__('bag_recorder')
         q = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)
         # 1) Subscribe to original image stream
-        self.subscription = self.create_subscription(Image,'/drone0/camera/image', self.callback_image,qos_profile=q)
+        self.subscription = self.create_subscription(Image,'/drone1/Camera_01/color/image_raw', self.callback_image,qos_profile=q)
         
         self.subscription  # prevent unused variable warning
 
