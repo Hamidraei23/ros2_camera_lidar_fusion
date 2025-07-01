@@ -5,6 +5,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image
 import subprocess
 from rclpy.qos import QoSProfile, ReliabilityPolicy
+from nav_msgs.msg import Odometry
 
 
 class BagRecorder(Node):
@@ -12,12 +13,15 @@ class BagRecorder(Node):
         super().__init__('bag_recorder')
         q = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)
         # 1) Subscribe to original image stream
-        self.subscription = self.create_subscription(Image,'/drone1/Camera_01/color/image_raw', self.callback_image,qos_profile=q)
-        
+        self.subscription = self.create_subscription(Image,'/drone0/camera/image', self.callback_image,qos_profile=q)
+
+        self.subscription = self.create_subscription(Odometry, '/dlio/odom_node/odom', self.callback_odom, qos_profile=q)
+
         self.subscription  # prevent unused variable warning
 
         # 2) Publisher for throttled 2 Hz stream
         self.pub_2hz = self.create_publisher(Image, '/image_2hz', qos_profile=q)
+        self.pub_odom_2hz = self.create_publisher(Odometry, '/odom_2hz', qos_profile=q)
 
         # store latest image
         self.latest_img = None
@@ -28,8 +32,11 @@ class BagRecorder(Node):
         # 3) start ros2 bag recording in background
         subprocess.Popen([
             'ros2', 'bag', 'record',
-            '/image_2hz',
+            '/image_2hz', '/odom_2hz',
         ])
+    def callback_odom(self, msg: Odometry):
+
+        self.latest_odom = msg
 
     def callback_image(self, msg: Image):
         # stash the most recent image
@@ -39,6 +46,8 @@ class BagRecorder(Node):
         if self.latest_img is not None:
             # re-publish at 2 Hz
             self.pub_2hz.publish(self.latest_img)
+            self.pub_odom_2hz.publish(self.latest_odom)
+            self.get_logger().debug('Published one image at 2 Hz')
             self.get_logger().debug('Published one frame at 2 Hz')
 
 def main(args=None):
