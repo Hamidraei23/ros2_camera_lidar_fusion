@@ -17,7 +17,7 @@ class UdpImageRelay(Node):
         super().__init__('udp_image_relay')
 
         # ── tunables exposed as ROS 2 params ────────────────────────────
-        self.declare_parameter('ip',    '192.168.199.100')
+        self.declare_parameter('ip',    '192.168.199.201')
         self.declare_parameter('port',  5005)
         self.declare_parameter('qual',  70)      # JPEG quality 0-100
         dst_ip  = self.get_parameter('ip').get_parameter_value().string_value
