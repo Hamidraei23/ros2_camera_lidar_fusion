@@ -1,12 +1,11 @@
-# poses.yaml
 poses:
   - header:
       frame_id: "odom"
     pose:
       position:
-        x: 1.0
-        y: 2.0
-        z: 0.0
+        x: 0.0
+        y: 0.0
+        z: 1.5
       orientation:
         x: 0.0
         y: 0.0
@@ -17,24 +16,102 @@ poses:
       frame_id: "odom"
     pose:
       position:
-        x: -1.5
+        x: 8.0
         y: 0.0
-        z: 0.5
+        z: 1.5
       orientation:
         x: 0.0
         y: 0.0
-        z: 0.707
-        w: 0.707
+        z: 0.0
+        w: 1.0
+
+  - header:
+      frame_id: "odom"
+    pose:
+      position:
+        x: 8.0
+        y: 7.0
+        z: 1.5
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+
+  - header:
+      frame_id: "odom"
+    pose:
+      position:
+        x: 17.0
+        y: 7.0
+        z: 1.5
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+
+  - header:
+      frame_id: "odom"
+    pose:
+      position:
+        x: 17.0
+        y: 0.0
+        z: 1.5
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+
+  - header:
+      frame_id: "odom"
+    pose:
+      position:
+        x: 17.0
+        y: 7.0
+        z: 1.5
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+
+  - header:
+      frame_id: "odom"
+    pose:
+      position:
+        x: 8.0
+        y: 7.0
+        z: 1.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+
+  - header:
+      frame_id: "odom"
+    pose:
+      position:
+        x: 8.0
+        y: 0.0
+        z: 1.5
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
 
   - header:
       frame_id: "odom"
     pose:
       position:
         x: 0.0
-        y: -2.0
-        z: 1.0
+        y: 0.0
+        z: 1.5
       orientation:
         x: 0.0
-        y: 0.707
+        y: 0.0
         z: 0.0
-        w: 0.707
+        w: 1.0
