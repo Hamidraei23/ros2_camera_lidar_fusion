@@ -73,7 +73,7 @@ def main(args=None):
 
     # Allow override of listen address/port via command-line
     ip = sys.argv[1] if len(sys.argv) > 1 else '0.0.0.0'
-    port = int(sys.argv[2]) if len(sys.argv) > 2 else 9999
+    port = int(sys.argv[2]) if len(sys.argv) > 2 else 5005
 
     node = UDPToRos(listen_ip=ip, listen_port=port)
     try:
